@@ -159,6 +159,9 @@ export default {
     color: azure;
   }
   @media screen and (max-width: 400px) {
+    * {
+      overflow-x: hidden;
+    }
     .wrapper {
       background: #111;
       min-height: 100vh;

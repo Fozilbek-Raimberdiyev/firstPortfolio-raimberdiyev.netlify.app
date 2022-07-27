@@ -48,7 +48,7 @@ export default {
 }
 .info-container {
   width: 800px;
-  margin: 0 auto;
+  margin: 3rem auto;
 }
   .movie-info {
     display: flex;
@@ -68,11 +68,15 @@ export default {
   }
   .movie-data .movie-release-year {
     font-size: 1.2rem;
-    margin: 1rem;
     color: #f90;
+  }
+  .movie-data p {
+    color: #f90;
+    width: 100%;
   }
   .movie-data  span {
     color: #fff;
+    margin-left: 1rem;
   }
 
   .movie-title {
@@ -111,6 +115,13 @@ export default {
   }
   .movie-data {
     width: 350px;
+  }
+  .info-container {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: #222;
   }
   }
 </style>
