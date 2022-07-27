@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
     <div class="search-form">
-      <input type="search" placeholder="Search" v-model="search" class="search-input">
-      <button @click="getSearchedMovies()" type="buttton">Search</button>
+      <input @keyup="getSearchedMoviesInput" type="search" placeholder="Search" v-model="search" class="search-input">
+      <button @keyup="getSearchedMovies()" type="buttton">Search</button>
       
     </div>
     <h1 class="title" v-if="isPressed">Qidiruv natijalari</h1>
@@ -50,6 +50,18 @@ export default {
       );
       this.results = (await res.json()).results;
     },
+    async getSearchedMoviesInput(e) {
+      if(e.keyCode==13) {
+      this.isPressed =true
+      const apiKey = "fa61e6fa7724edd99048bc5f0b11ae72";
+      let res = (
+        await fetch(
+          `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${this.search.toLowerCase()}`
+        )
+      );
+      this.results = (await res.json()).results;
+      }
+    }
   },
   watch : {
 
@@ -170,15 +182,18 @@ export default {
       padding: 0;
     }
     .search-form {
-      width: 100%;
+      width: 320px;
+      margin: 5rem auto;
+      padding: 0.5rem;
       text-align: center;
     }
     .search-input {
       width: 100%;
-      margin: 0;
+      margin: 0 auto;
     }
     .search-form button {
       font-size: 1rem;
+      padding: 0.5rem;
     }
      .movie-info {
     flex-direction: column;
