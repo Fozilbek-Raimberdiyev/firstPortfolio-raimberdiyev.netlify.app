@@ -14,7 +14,7 @@
 
 <script>
 export default {
-
+    name: "App"
 }
 </script>
 
@@ -26,13 +26,14 @@ export default {
     user-select: none;
 }
 .navigation {
-    width: 1150px;
     margin: 0 auto;
-    padding: 1rem; 
+    padding: 1.5rem; 
     background: rgba(0, 0, 0, 0.9);
     position: fixed;
     z-index: 99;
     top: 0;
+    left: 0;
+    right: 0;
 }
 
 .navigation ul {
@@ -56,7 +57,7 @@ img {
     margin-right: 5px;
 }
 .router-link-exact-active{
-    color: #f90 !important;
+    color: yellow !important;
 }
 @media screen and (max-width: 400px){
     .navigation ul li a {

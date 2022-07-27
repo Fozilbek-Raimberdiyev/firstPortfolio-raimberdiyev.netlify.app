@@ -1,5 +1,5 @@
 <template>
- <div class="container">
+ <div>
   <nav-bar></nav-bar>
   <router-view></router-view>
  </div>
@@ -28,14 +28,7 @@ export default {
   user-select: none;
 }
 body {
-  background: rgba(0, 0, 0, 0.5);
-}
-.container {
-  width: 1150px;
-  margin: 0 auto;
-  background: #222;
-  box-shadow: 0 1px 4px 2px rgb(0 0 0 / 20%);
-  min-height: 100vh;
+  background: #222
 }
 @media screen and (max-width: 400px) {
     .container {

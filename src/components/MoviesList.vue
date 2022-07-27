@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <nav class="navigation">
       <ul>
         <li>
@@ -45,7 +45,7 @@ mounted() {
 <style scoped>
 .title {
     text-align: center;
-    color: beige;
+    color: yellow;
     font-size: 2rem;
 }
 .movies {

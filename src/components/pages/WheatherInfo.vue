@@ -1,5 +1,5 @@
 <template>
-  <div class="weather-container container">
+  <div class="weather-container">
     <div>
         <div class="search-form">
         <input type="search" placeholder="Enter your region" v-model="place">
@@ -53,7 +53,6 @@ export default {
     padding: 10rem 5rem;
     position: relative;
     z-index: 1;
-    /*  */
 }
 .weather-container > div::after {
     background: url("../../assets/pikwizard-sun-sunset-sky.jfif");
@@ -90,11 +89,11 @@ input {
   display: inline-block;
   font-size: 18px;
   text-transform: uppercase;
-  color: #000;
-  background: #fff;
+  color: #fff;
+  background: blue;
+  border: 1px solid #516552;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  border: 1px solid #000;
   box-shadow: 0 1px 4px 2px rgb(0 0 0 / 20%);
 }
 .result p {
@@ -110,19 +109,6 @@ input {
     font-style: italic;
 }
 @media screen and (max-width: 400px){
-   .weather-container > div::after {
-    background: url("../../assets/pikwizard-sun-sunset-sky.jfif");
-    background-repeat: no-repeat;
-    background-size:  100%;
-    opacity: 0.5;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;   
-    content: "";
-} 
 
 }
 </style>

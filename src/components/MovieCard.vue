@@ -26,7 +26,6 @@ a {
   height: 250px;
   transition: all ease-in-out .3s;
   border-radius: 0.2rem;
-  border: 1px solid white;
   padding: 0.5rem;
   border-radius: 3px;
   height: 320px;

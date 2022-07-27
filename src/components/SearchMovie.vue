@@ -77,13 +77,13 @@ export default {
 .title {
   text-align: center;
   margin: 2rem 0;
-  color: azure;
+  color: yellow;
 }
 .search-form {
   display: block;
   margin: 0 auto;
-  background: #111;
   padding: 5rem;
+  text-align: center;
 }
 .search-input {
   width: 55%;
@@ -102,11 +102,11 @@ export default {
   display: inline-block;
   font-size: 18px;
   text-transform: uppercase;
-  color: #000;
-  background: #fff;
+  color: #fff;
+  background: blue;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  border: 1px solid #000;
+  border: 1px solid #516552;
   box-shadow: 0 1px 4px 2px rgb(0 0 0 / 20%);
 }
 .info-container {
