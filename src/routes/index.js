@@ -4,7 +4,7 @@ import MoviesList from "../components/MoviesList"
 import MovieInfo from "../components/MovieInfo"
 import searchMovie from "@/components/SearchMovie"
 import channels from "@/components/pages/ChannelList"
-import music from "@/components/pages/musicList"
+import video from "@/components/pages/VideoPage"
 import blog from "@/components/pages/MyBlog"
 import wheather from "@/components/pages/WheatherInfo"
 
@@ -38,7 +38,7 @@ const routes = [
     },
     {
         path : "/music",
-        component : music,
+        component : video,
         name : "Music"
     },
     {

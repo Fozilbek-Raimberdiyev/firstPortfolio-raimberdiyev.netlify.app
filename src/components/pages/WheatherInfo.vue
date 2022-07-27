@@ -6,6 +6,8 @@
         <button @click="getWheather()" type="button" class="btn">Search</button>
     </div>
     <div class="result" v-if="isGet">
+        <h2 style="color: #fff;">{{wheatherData}}</h2>
+        <video :src="wheatherData.data.player_embed_url">Eminem</video>
         <p class="region-title">City: <span>{{wheatherData?.name}}</span>, <span>{{wheatherData?.sys?.country}}</span></p>
         <p class="deg">Temperature: <span>{{Math.round(wheatherData?.main?.temp)}}C</span></p>
         <p class="description" v-for="(data,index) in wheatherData?.weather" :key="index">Description: 
@@ -30,8 +32,9 @@ export default {
         async getWheather() {
             try{
                 this.isGet = false
-                let apiKey = "b5a12c9a0d8e01e38389d6b2a7c5b622";
-                let response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.place}&mode=json&units=metric&appid=${apiKey}`)
+                // let apiKey = "b5a12c9a0d8e01e38389d6b2a7c5b622";
+                // let response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.place}&mode=json&units=metric&appid=${apiKey}`)
+                let response = await fetch("https://v1.nocodeapi.com/fozilbek/vimeo/uMfgwCsKVArVjIzp/search?q=eminem")
                 let jsonData = await response.json();
                 this.wheatherData = jsonData;
                 this.isGet = true
