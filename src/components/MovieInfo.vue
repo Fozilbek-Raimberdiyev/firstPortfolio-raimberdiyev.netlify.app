@@ -90,4 +90,27 @@ export default {
     line-height: 2rem;
     color: #fff;
   }
+  @media screen and (max-width: 400px) {
+  .movie-info {
+    flex-direction: column;
+  }
+  .movie-img {
+    width: 350px;
+    text-align: center;
+    margin: 2.2rem 0;
+  }
+  .movie-img img{
+    width: 80%;
+    height: 250px;
+  }
+  .bottom-info {
+    width: 320px;
+    margin: 0 1rem;
+    font-size: 16px;
+    text-align: justify;
+  }
+  .movie-data {
+    width: 350px;
+  }
+  }
 </style>

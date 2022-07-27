@@ -59,6 +59,7 @@ mounted() {
   text-align: right;
   margin-right: 3rem;
   padding-top: 5rem;
+  padding-bottom: 2rem;
 }
 .navigation li {
   list-style: none;
@@ -74,6 +75,15 @@ mounted() {
   border-radius: 0.3rem;
   border: 1px solid #000;
   box-shadow: 0 1px 4px 2px rgb(0 0 0 / 20%);
+}
+
+@media screen and (max-width: 400px) {
+  .navigation {
+  margin-right: 2rem;
+}
+.navigation a {
+  font-size: 1rem;
+}
 }
 
 </style>

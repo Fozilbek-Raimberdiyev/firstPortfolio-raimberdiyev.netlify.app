@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div class="wrapper">
     <div class="search-form">
       <input type="search" placeholder="Search" v-model="search" class="search-input">
       <button @click="getSearchedMovies()" type="buttton">Search</button>
+      
     </div>
     <h1 class="title" v-if="isPressed">Qidiruv natijalari</h1>
     <div class="info-container" v-for="(result,index) in results" :key="index">
@@ -156,5 +157,49 @@ export default {
     font-size: 18px;
     margin-top: 3rem;
     color: azure;
+  }
+  @media screen and (max-width: 400px) {
+    .wrapper {
+      background: #111;
+      min-height: 100vh;
+    }
+    .info-container {
+      padding: 0;
+    }
+    .search-form {
+      width: 100%;
+      text-align: center;
+    }
+    .search-input {
+      width: 100%;
+      margin: 0;
+    }
+    .search-form button {
+      font-size: 1rem;
+    }
+     .movie-info {
+    flex-direction: column;
+  }
+    .movie-img {
+    width: 350px;
+    text-align: center;
+    margin: 2.2rem 0;
+  }
+  .movie-img img{
+    width: 80%;
+    height: 250px;
+  }
+  .bottom-info {
+    width: 320px;
+    margin: 0 1rem;
+    font-size: 16px;
+    text-align: justify;
+  }
+  .movie-data {
+    width: 350px;
+  }
+  .movie-title {
+    margin-left: 0;
+  }
   }
 </style>

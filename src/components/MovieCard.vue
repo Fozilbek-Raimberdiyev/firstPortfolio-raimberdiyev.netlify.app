@@ -40,4 +40,13 @@ a {
   color: antiquewhite;
   min-height: 50px;
 }
+@media screen and (max-width: 400px){
+  .moviecard {
+    flex-basis: 95%;
+    margin: 1rem;
+  }
+  .moviecard img {
+    height: 200px
+  }
+}
 </style>

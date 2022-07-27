@@ -5,7 +5,7 @@
         <li><router-link to="/movie">Movies</router-link></li>
         <li><router-link to="/tv">Tv</router-link></li>
         <li><router-link to="/music">Music</router-link></li>
-        <li><router-link to="/blog">News</router-link></li>
+        <!-- <li><router-link to="/blog">News</router-link></li> -->
         <li><router-link to="/wheather">Weather</router-link></li>
     </ul>
   </nav>
@@ -57,5 +57,10 @@ img {
 }
 .router-link-exact-active{
     color: #f90 !important;
+}
+@media screen and (max-width: 400px){
+    .navigation ul li a {
+        font-size: 1rem;
+    }
 }
 </style>

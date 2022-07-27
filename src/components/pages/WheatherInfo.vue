@@ -1,11 +1,10 @@
 <template>
-  <div class="weather-container">
+  <div class="weather-container container">
     <div>
         <div class="search-form">
         <input type="search" placeholder="Enter your region" v-model="place">
         <button @click="getWheather()" type="button" class="btn">Search</button>
     </div>
-    <!-- <p style="color: #fff">{{wheatherData}}</p> -->
     <div class="result" v-if="isGet">
         <p class="region-title">City: <span>{{wheatherData?.name}}</span>, <span>{{wheatherData?.sys?.country}}</span></p>
         <p class="deg">Temperature: <span>{{Math.round(wheatherData?.main?.temp)}}C</span></p>
@@ -109,5 +108,21 @@ input {
 .result p span {
     color: rgb(252, 233, 206);
     font-style: italic;
+}
+@media screen and (max-width: 400px){
+   .weather-container > div::after {
+    background: url("../../assets/pikwizard-sun-sunset-sky.jfif");
+    background-repeat: no-repeat;
+    background-size:  100%;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+    content: "";
+} 
+
 }
 </style>

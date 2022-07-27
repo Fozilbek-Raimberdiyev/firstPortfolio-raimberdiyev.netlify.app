@@ -37,4 +37,13 @@ body {
   box-shadow: 0 1px 4px 2px rgb(0 0 0 / 20%);
   min-height: 100vh;
 }
+@media screen and (max-width: 400px) {
+    .container {
+      width: 100%;
+      margin: 0 auto;
+    }
+    body {
+      overflow-x: hidden;
+    }
+}
 </style>
