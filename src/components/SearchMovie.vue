@@ -2,10 +2,10 @@
   <div class="wrapper">
     <div class="search-form">
       <input @keyup="getSearchedMoviesInput" type="search" placeholder="Search" v-model="search" class="search-input">
-      <button @keyup="getSearchedMovies()" type="buttton">Search</button>
+      <!-- <button @keyup="getSearchedMovies()" type="buttton">Search</button> -->
       
     </div>
-    <h1 class="title" v-if="isPressed">Qidiruv natijalari</h1>
+    <h1 class="title" v-if="isEnd">Qidiruv natijalari</h1>
     <div class="info-container" v-for="(result,index) in results" :key="index">
     <div class="movie-info" v-if="results.length">
       <div class="movie-img">
@@ -25,7 +25,8 @@
     </div>
     <hr>
   </div>
-  <div class="error" v-if="isPressed && !results.length">Hech narsa toplimadi!</div>
+  <div class="error" v-if="!results.length && isEnd">Hech narsa topilmadi!</div>
+  <div class="loading" v-if="loading && !isEnd">Qidirilmoqda...</div>
   </div>
 </template>
 
@@ -36,30 +37,46 @@ export default {
     return {
       search : "",
       results : [],
-      isPressed: false
+      isEnd: false,
+      loading: false
     }
   },
   methods : {
     async getSearchedMovies() {
-      this.isPressed =true
-      const apiKey = "fa61e6fa7724edd99048bc5f0b11ae72";
-      let res = (
-        await fetch(
-          `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${this.search.toLowerCase()}`
-        )
-      );
-      this.results = (await res.json()).results;
+      try{
+          this.loading = true;
+          const apiKey = "fa61e6fa7724edd99048bc5f0b11ae72";
+          let res = (
+            await fetch(
+              `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${this.search}`
+            )
+          );
+          this.isEnd = true;
+          this.results = (await res.json()).results;
+          this.loading = false
+      }
+      catch(e) {
+        console.log(e)
+      }
+      
     },
     async getSearchedMoviesInput(e) {
-      if(e.keyCode==13) {
-      this.isPressed =true
-      const apiKey = "fa61e6fa7724edd99048bc5f0b11ae72";
-      let res = (
-        await fetch(
-          `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${this.search.toLowerCase()}`
-        )
-      );
-      this.results = (await res.json()).results;
+      try{
+        if(e.keyCode==13) {
+          this.loading = true
+          const apiKey = "fa61e6fa7724edd99048bc5f0b11ae72";
+          let res = (
+            await fetch(
+              `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${this.search}`
+            )
+          );
+          this.isEnd = true;
+          this.results = (await res.json()).results;
+          this.loading = false
+      } 
+      }
+      catch(e) {
+        console.log(e)
       }
     }
   },
@@ -165,6 +182,17 @@ export default {
     color: aliceblue;
   }
   .error {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 3rem;
+    color: azure;
+  }
+  .loading {
+    /* display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 22px;
+    color: aliceblue; */
     text-align: center;
     font-size: 18px;
     margin-top: 3rem;

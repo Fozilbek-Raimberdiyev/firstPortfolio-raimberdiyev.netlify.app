@@ -4,7 +4,7 @@
     <ul>
         <li><router-link to="/movie">Movies</router-link></li>
         <li><router-link to="/tv">Tv</router-link></li>
-        <li><router-link to="/music">Video</router-link></li>
+        <li><router-link to="/video">Video</router-link></li>
         <!-- <li><router-link to="/blog">News</router-link></li> -->
         <li><router-link to="/wheather">Weather</router-link></li>
     </ul>

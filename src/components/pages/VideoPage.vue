@@ -2,7 +2,7 @@
   <div class="video-container">
     <div>
         <div class="search-form">
-        <input type="search" placeholder="Enter your region" v-model="videoSearch">
+        <input type="search" placeholder="search" v-model="videoSearch">
         <button @click="getWheather()" type="button" class="btn">Search</button>
         </div>
     </div>
@@ -13,7 +13,7 @@
             </div>
             
             </div>
-            <div class="loading" v-if="loading">Yuklanmoqda...</div>
+            <div class="loading" v-if="loading">Qidirilmoqda...</div>
             <div class="error" v-else-if="!videoData?.data?.length && isEnd">Ma'lumot topilmadi!</div>
     
   </div> 
@@ -30,14 +30,12 @@ export default {
         }
     },
     methods : {
-        async getWheather() {
+        async getVideos() {
             try{
-                this.isStartedSearch = true
                 this.loading = true;
                 let response = await fetch(`https://v1.nocodeapi.com/fozilbek/vimeo/uMfgwCsKVArVjIzp/search?q=${this.videoSearch}`)
                 let jsonData = await response.json();
                 this.videoData = jsonData;
-                // this.isEnd = true
             } 
             catch(e){
                 console.log(e)

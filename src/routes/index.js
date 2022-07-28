@@ -6,7 +6,7 @@ import searchMovie from "@/components/SearchMovie"
 import channels from "@/components/pages/ChannelList"
 import video from "@/components/pages/VideoPage"
 import blog from "@/components/pages/MyBlog"
-import wheather from "@/components/pages/WheatherInfo"
+import weather from "@/components/pages/WheatherInfo"
 
 Vue.use(Router)
 
@@ -37,9 +37,9 @@ const routes = [
         name: "ChannelList"
     },
     {
-        path : "/music",
+        path : "/video",
         component : video,
-        name : "Music"
+        name : "video"
     },
     {
         path : "/blog",
@@ -47,9 +47,9 @@ const routes = [
         name : "Blog"
     },
     {
-        path : "/wheather",
-        component : wheather,
-        name : "Wheather"
+        path : "/weather",
+        component : weather,
+        name : "Weather"
     }
 ]
 
