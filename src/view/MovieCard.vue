@@ -6,11 +6,14 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex"
 export default {
-props: ["movie"]
+props: ["movie"],
+computed : {
+  ...mapGetters(["forMovieCard"])
+}
 }
 </script>
-
 <style scoped>
 a {
   text-decoration: none;
