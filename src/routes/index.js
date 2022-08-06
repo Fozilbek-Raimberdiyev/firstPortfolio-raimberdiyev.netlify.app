@@ -1,12 +1,12 @@
 import Vue from "vue"
 import Router from "vue-router"
-import MoviesList from "../components/MoviesList"
-import MovieInfo from "../components/MovieInfo"
-import searchMovie from "@/components/SearchMovie"
-import channels from "@/components/pages/ChannelList"
-import video from "@/components/pages/VideoPage"
-import blog from "@/components/pages/MyBlog"
-import weather from "@/components/pages/WheatherInfo"
+import MoviesList from "@/view/MoviesList"
+import MovieInfo from "@/view/MovieInfo"
+import searchMovie from "@/view/SearchMovie"
+import channels from "@/view/ChannelList"
+import video from "@/view/VideoPage"
+import blog from "@/view/MyBlog"
+import weather from "@/view/WheatherInfo"
 
 Vue.use(Router)
 

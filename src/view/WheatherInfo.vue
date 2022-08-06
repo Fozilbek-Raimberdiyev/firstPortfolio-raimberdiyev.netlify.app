@@ -58,7 +58,7 @@ export default {
     z-index: 1;
 }
 .weather-container > div::after {
-    background: url("../../assets/pikwizard-sun-sunset-sky.jfif");
+    background: url("@/assets/pikwizard-sun-sunset-sky.jfif");
     background-repeat: no-repeat;
     background-size:  100%;
     opacity: 0.5;

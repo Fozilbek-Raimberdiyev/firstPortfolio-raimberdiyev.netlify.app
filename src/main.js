@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from "../src/routes/index"
-import store from "../src/store/index"
+import router from "@/routes/index"
+import store from "@/store/index"
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'

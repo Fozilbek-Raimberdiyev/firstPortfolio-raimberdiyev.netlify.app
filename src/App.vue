@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import NavBar from './components/headerFooter/NavBar.vue'
+import NavBar from '@/view/headerFooter/NavBar.vue'
 export default {
  components: {
   NavBar

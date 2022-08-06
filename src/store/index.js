@@ -1,27 +1,11 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex"
+import movieState from "@/store/movies/movieStore"
 
 Vue.use(Vuex)
-const store = new Vuex.Store({
-  state: {
-    movies: [],
-    isOpen: false,
-    search: '',
-  },
-  getters: {
 
-  },
-  mutations: {
-    TOGGLE_IS_OPEN(state, val) {
-      state.isOpen = val
-    },
-
-  },
-  actions: {
-  },
+export default new Vuex.Store({
   modules: {
-    
+    movieState
   }
 })
-
-export default store

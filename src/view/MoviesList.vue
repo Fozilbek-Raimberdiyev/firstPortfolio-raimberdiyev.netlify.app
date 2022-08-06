@@ -9,36 +9,41 @@
     </nav>
     <h1 class="title">Movies</h1>
     <div class="movies">
-      <movie-card v-for="(movie,index) in movies" :key="index" :movie="movie" class="moviecard"></movie-card>
+      <movie-card v-for="(movie,index) in $store.state.movieState.movies" :key="index" :movie="movie" class="moviecard"></movie-card>
     </div>
   </div>
 </template>
 
 <script>
-import MovieCard from '@/components/MovieCard.vue';
+import MovieCard from '@/view/MovieCard.vue';
+import {mapState,mapActions,mapGetters} from "vuex"
 export default {
   components: {
     MovieCard
   },
 data() {
   return {
-    movies: [],
-    search : ""
+    search : "",
   }
 },
 computed: {
-
+  ...mapGetters(["moviesList"]),
+  ...mapState(["name"])
 },
 methods: {
-  async getMovies() {
-    let response = await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=fa61e6fa7724edd99048bc5f0b11ae72");
-    let jsonData = await response.json();
-    this.movies = jsonData.results;
-  }
+  // async getMovies() {
+  //   let response = await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=fa61e6fa7724edd99048bc5f0b11ae72");
+  //   let jsonData = await response.json();
+  //   this.movies = jsonData.results;
+  // }
+  ...mapActions(["fetchMovies"])
 },
 mounted() {
-    this.getMovies()
-}
+    // this.getMovies()
+    // this.$store.dispatch("fetchMovies")
+    this.fetchMovies(),
+    console.log(this.fet)
+    }
 }
 </script>
 
