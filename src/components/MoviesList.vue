@@ -33,7 +33,7 @@ methods: {
   async getMovies() {
     let response = await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=fa61e6fa7724edd99048bc5f0b11ae72");
     let jsonData = await response.json();
-    this.movies = jsonData.results
+    this.movies = jsonData.results;
   }
 },
 mounted() {

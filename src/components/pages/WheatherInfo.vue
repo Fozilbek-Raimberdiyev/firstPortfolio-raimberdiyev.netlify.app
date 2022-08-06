@@ -1,6 +1,6 @@
 <template>
   <div class="weather-container">
-    <div>
+    <!-- <div>
         <div class="search-form">
         <input type="search" placeholder="Enter your region" v-model="place">
         <button @click="getWheather()" type="button" class="btn">Search</button>
@@ -15,7 +15,7 @@
         </p>
         <p class="wind">Wind speed: <span>{{wheatherData?.wind?.speed}}</span></p>
     </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -29,20 +29,20 @@ export default {
         }
     },
     methods : {
-        async getWheather() {
-            try{
-                this.isGet = false
-                // let apiKey = "b5a12c9a0d8e01e38389d6b2a7c5b622";
-                // let response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.place}&mode=json&units=metric&appid=${apiKey}`)
-                let response = await fetch("https://v1.nocodeapi.com/fozilbek/vimeo/uMfgwCsKVArVjIzp/search?q=eminem")
-                let jsonData = await response.json();
-                this.wheatherData = jsonData;
-                this.isGet = true
-            } 
-            catch(e){
-                console.log(e)
-            }
-        },
+        // async getWheather() {
+        //     try{
+        //         this.isGet = false
+        //         // let apiKey = "b5a12c9a0d8e01e38389d6b2a7c5b622";
+        //         // let response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.place}&mode=json&units=metric&appid=${apiKey}`)
+        //         let response = await fetch("https://v1.nocodeapi.com/fozilbek/vimeo/uMfgwCsKVArVjIzp/search?q=eminem")
+        //         let jsonData = await response.json();
+        //         this.wheatherData = jsonData;
+        //         this.isGet = true
+        //     } 
+        //     catch(e){
+        //         console.log(e)
+        //     }
+        // },
     }
 }
 </script>

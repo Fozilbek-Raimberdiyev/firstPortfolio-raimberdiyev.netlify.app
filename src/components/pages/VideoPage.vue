@@ -3,7 +3,7 @@
     <div>
         <div class="search-form">
         <input type="search" placeholder="search" v-model="videoSearch">
-        <button @click="getWheather()" type="button" class="btn">Search</button>
+        <button @click="getVideos()" type="button" class="btn">Search</button>
         </div>
     </div>
             <div class="videos" v-if="videoData?.data?.length">
