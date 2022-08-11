@@ -1,7 +1,9 @@
 export default {
+  namespaced: true,
   state: {
     movies: [],
-    name: "Fozil"
+    name: "Fozil",
+    isOpen : false
   },
   actions: {
     async fetchMovies({commit}) {
@@ -21,6 +23,12 @@ export default {
   mutations: {
     updateMovies(state, value) {
         state.movies = value
+    },
+    updateOpen(state,value) {
+      state.isOpen = value
+    },
+    closeMenu(state,value) {
+      state.isOpen = value
     }
   },
   

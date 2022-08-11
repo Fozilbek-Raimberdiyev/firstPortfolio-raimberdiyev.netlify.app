@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navigation">
+    <nav class="navigation" :class="{open : isOpen}">
       <ul>
         <li>
           <router-link to="/search">Search</router-link>
@@ -16,7 +16,7 @@
 
 <script>
 import MovieCard from '@/view/MovieCard.vue';
-import {mapActions,mapGetters} from "vuex"
+import {mapActions,mapGetters, mapState} from "vuex"
 export default {
   components: {
     MovieCard
@@ -27,10 +27,11 @@ data() {
   }
 },
 computed: {
-  ...mapGetters(["moviesList"]),
+  ...mapGetters("movieState",["moviesList"]),
+  ...mapState("movieState", ["isOpen"])
 },
 methods: {
-  ...mapActions(["fetchMovies"])
+  ...mapActions("movieState",["fetchMovies"])
 },
 mounted() {
     this.fetchMovies()
@@ -56,6 +57,7 @@ mounted() {
   margin-right: 3rem;
   padding-top: 5rem;
   padding-bottom: 2rem;
+  transition: all ease-in-out .2s;
 }
 .navigation li {
   list-style: none;
@@ -71,6 +73,9 @@ mounted() {
   border-radius: 0.3rem;
   border: 1px solid #000;
   box-shadow: 0 1px 4px 2px rgb(0 0 0 / 20%);
+}
+.navigation.open {
+  margin-top: 6rem;
 }
 
 @media screen and (max-width: 400px) {

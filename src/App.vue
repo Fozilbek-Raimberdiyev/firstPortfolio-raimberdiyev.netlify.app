@@ -7,9 +7,33 @@
 
 <script>
 import NavBar from '@/view/headerFooter/NavBar.vue'
+import {mapMutations,mapState} from "vuex"
 export default {
  components: {
   NavBar
+},
+data() {
+  return {
+    
+  }
+},
+computed : {
+  ...mapState("movieState", ["isOpen"])
+},
+watch : {
+  // isOpen(newValue) {
+  //   if(newValue==true) {
+  //     this.closeMenu()
+  //   }
+  // }
+},
+methods : {
+  close() {
+    if(this.isOpen) {
+      this.closeMenu(false)
+    }
+  },
+  ...mapMutations("movieState",["closeMenu"])
 }
 }
 </script>

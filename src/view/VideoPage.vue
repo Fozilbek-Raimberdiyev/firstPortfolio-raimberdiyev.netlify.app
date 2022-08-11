@@ -1,5 +1,5 @@
 <template>
-  <div class="video-container">
+  <div class="video-container" :class="{open : isOpen}">
     <div>
         <div class="search-form">
         <input type="search" placeholder="search" v-model="videoSearch">
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import {mapState} from "vuex"
 export default {
     data() {
         return {
@@ -28,6 +29,9 @@ export default {
            loading: false,
            isEnd: false
         }
+    },
+    computed : {
+        ...mapState("movieState", ["isOpen"])
     },
     methods : {
         async getVideos() {
@@ -51,10 +55,16 @@ export default {
 </script>
 
 <style scoped>
+.video-container {
+    transition: all ease-out .3s;
+}
 .video-container >  div {
     padding: 10rem 5rem;
     padding-bottom: 2rem;
     position: relative;
+}
+.video-container.open {
+    margin-top: 11rem;
 }
 .search-form {
     width: 700px;

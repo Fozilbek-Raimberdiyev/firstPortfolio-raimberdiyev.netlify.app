@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="search-form">
+    <div class="search-form" :class="{open : isOpen}">
       <input @keyup="getSearchedMoviesInput" type="search" placeholder="Search" v-model="search" class="search-input">
       <!-- <button @keyup="getSearchedMovies()" type="buttton">Search</button> -->
       
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-
+import {mapState} from "vuex"
 export default {
   data() {
     return {
@@ -40,6 +40,9 @@ export default {
       isEnd: false,
       loading: false
     }
+  },
+  computed : {
+    ...mapState("movieState", ["isOpen"])
   },
   methods : {
     async getSearchedMovies() {
@@ -83,7 +86,9 @@ export default {
   watch : {
 
   },
-
+mounted() {
+  
+}
 }
 </script>
 
@@ -101,6 +106,10 @@ export default {
   margin: 0 auto;
   padding: 5rem;
   text-align: center;
+  transition: all ease-in-out .3s;
+}
+.search-form.open {
+  margin-top: 11rem;
 }
 .search-input {
   width: 55%;

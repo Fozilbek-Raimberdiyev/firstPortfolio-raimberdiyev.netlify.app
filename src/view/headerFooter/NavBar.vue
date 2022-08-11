@@ -1,24 +1,54 @@
 <template>
-  <div>
+  <div class="wrapper" :class="{close : !isOpen}">
+    <div class="top">
+        <h1>My Portfolio</h1>
+        <span class="btns">
+        <i @click="updateOpen(!isOpen)" :class="[isOpen ? 'bi bi-x' : 'bi bi-filter-left']"></i>
+    </span>
+    </div>
     <nav class="navigation">
-    <ul>
-        <li><router-link to="/movie">Movies</router-link></li>
-        <li><router-link to="/tv">Tv</router-link></li>
-        <li><router-link to="/video">Video</router-link></li>
+    <ul :class="{open : isOpen}">
+        <li><router-link @click="close()" to="/movie">Movies</router-link></li>
+        <li><router-link @click="close()" to="/tv">Tv</router-link></li>
+        <li><router-link @click="close()" to="/video">Video</router-link></li>
         <!-- <li><router-link to="/blog">News</router-link></li> -->
-        <li><router-link to="/wheather">Weather</router-link></li>
+        <li><router-link @click="close()" to="/wheather">Weather</router-link></li>
     </ul>
   </nav>
   </div>
 </template>
 
 <script>
+import {mapState, mapMutations} from "vuex"
 export default {
-    name: "App"
+    name: "App",
+    data() {
+        return {
+            // isOpen: false
+        }
+    },
+    computed: {
+        ...mapState("movieState",["isOpen", "name"])
+    },
+    watch : {
+        
+    },
+    methods : {
+        ...mapMutations("movieState",["updateOpen","closeMenu"]),
+        close() {
+            if(this.isOpen==true) {
+                this.closeMenu(false)
+            }
+        }
+    },
+    mounted() {
+       
+    }
 }
 </script>
 
 <style scoped>
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 * {
     margin: 0;
     padding: 0;
@@ -59,9 +89,50 @@ img {
 .router-link-exact-active{
     color: yellow !important;
 }
+i {
+    color: #fff;
+    font-size: 2rem;
+    position: fixed;
+    right: 1rem;
+    cursor: pointer;
+    top: 5px;
+}
+.top  {
+    display: flex;
+    position: fixed;
+    z-index: 9999;
+    top: 7px;
+    left: 1rem;
+    visibility: hidden;
+}
+.top h1 {
+    color: #fff;
+    font-size: 1.5rem;
+    font: optional;
+}
 @media screen and (max-width: 400px){
+    .wrapper.close ul {
+        left: -100%;
+    }
     .navigation ul li a {
         font-size: 1rem;
+    }
+    .navigation ul {
+        position: absolute;
+        top: 3rem;
+        display: block;
+        background: #111;
+        width: 100%;
+        transition: all ease .4s;
+    }
+    .navigation a {
+        margin: 6px 0;
+    }
+    ul.open {
+        left: 0;
+    }
+    .top {
+        visibility: visible;
     }
 }
 </style>
