@@ -57,6 +57,7 @@ export default {
 <style scoped>
 .video-container {
     transition: all ease-out .3s;
+    margin-top: 0;
 }
 .video-container >  div {
     padding: 10rem 5rem;
@@ -81,7 +82,7 @@ export default {
     flex-wrap: wrap;
 }
 .video {
-    flex-basis: 32%;
+    flex-basis: 30%;
     margin: 0 0.5rem;
 }
 

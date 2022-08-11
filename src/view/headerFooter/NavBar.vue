@@ -1,7 +1,10 @@
 <template>
   <div class="wrapper" :class="{close : !isOpen}">
     <div class="top">
-        <h1>My Portfolio</h1>
+        <div class="title">
+            <i class="bi bi-bag"></i>
+            <h1>My Portfolio</h1>
+        </div>
         <span class="btns">
         <i @click="updateOpen(!isOpen)" :class="[isOpen ? 'bi bi-x' : 'bi bi-filter-left']"></i>
     </span>
@@ -89,13 +92,16 @@ img {
 .router-link-exact-active{
     color: yellow !important;
 }
-i {
+.btns i {
     color: #fff;
     font-size: 2rem;
     position: fixed;
     right: 1rem;
     cursor: pointer;
     top: 5px;
+}
+.btns i:hover {
+    color: yellow;
 }
 .top  {
     display: flex;
@@ -105,10 +111,15 @@ i {
     left: 1rem;
     visibility: hidden;
 }
-.top h1 {
+.title {
+    display: flex;
+    align-items: center;
     color: #fff;
+}
+.title h1 {
     font-size: 1.5rem;
     font: optional;
+    margin: 0 5px;
 }
 @media screen and (max-width: 400px){
     .wrapper.close ul {

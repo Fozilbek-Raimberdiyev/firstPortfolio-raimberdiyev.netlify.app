@@ -96,6 +96,9 @@ mounted() {
 * {
   font-family: "Gilroy";
 }
+.wrapper {
+  margin-top: 0;
+}
 .title {
   text-align: center;
   margin: 2rem 0;
