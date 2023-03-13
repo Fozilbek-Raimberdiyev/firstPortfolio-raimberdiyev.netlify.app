@@ -5,7 +5,7 @@ import MovieInfo from "@/view/MovieInfo"
 import searchMovie from "@/view/SearchMovie"
 import channels from "@/view/ChannelList"
 import video from "@/view/VideoPage"
-import blog from "@/view/MyBlog"
+// import blog from "@/view/MyBlog"
 import weather from "@/view/WheatherInfo"
 
 Vue.use(Router)
@@ -43,7 +43,7 @@ const routes = [
     },
     {
         path : "/blog",
-        component : blog,
+        // component : blog,
         name : "Blog"
     },
     {
